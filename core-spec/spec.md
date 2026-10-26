@@ -429,6 +429,9 @@ variants can be supplied in `dialects`.
 ```yaml
 expression:
   sql: "SUM(order.sales) / COUNT(DISTINCT order.customer_id)"  # Primary, portable OSSIE_SQL_2026 form
+  dialects:
+    - dialect: BIGQUERY
+      expression: "SAFE_DIVIDE(SUM(order.sales), COUNT(DISTINCT order.customer_id))"
 ```
 
 At least one of the top-level `sql` or `dialects` MUST be present; either MAY stand alone. When both a top-level `sql` and an `OSSIE_SQL_2026` entry in `dialects` are present, the top-level `sql` is authoritative.
