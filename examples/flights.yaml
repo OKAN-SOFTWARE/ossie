@@ -568,6 +568,9 @@ ontology_mappings:
       - name: name
         expression:
           sql: name
+          dialects:
+            - dialect: SNOWFLAKE
+              expression: name::VARCHAR
       - name: nr_seats
         expression:
           sql: nr_seats
